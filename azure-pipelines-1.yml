@@ -4,12 +4,23 @@ trigger:
 pool:
   vmImage: windows-latest
 
-variables:
-- name: system.debug
-  value: true
-
 steps:
-- script: |
-    echo put the logic here
-  displayName: 'Push changes to DevOps repo'
+  - checkout: self
 
+  - script: |
+      git config user.email "wojciech.suski@pwc.com"
+      git config user.name "suskiwojciech"
+      # Add your commands to update the repository here
+      git checkout main
+      git add .
+      git commit -m "Update from GitHub push"
+    displayName: 'Update Azure DevOps Repo'
+
+  - task: CmdLine@2
+    inputs:
+      script: |
+        git remote add azure https://{PAT}@dev.azure.com/{org}/{proj}/_git/TestPipeLine.git
+        git push azure main
+    env:
+      GIT_CREDENTIALS: $(System.AccessToken)
+    displayName: 'Push changes to Azure DevOps'
