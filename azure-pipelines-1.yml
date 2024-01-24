@@ -1,0 +1,15 @@
+trigger:
+- main
+
+pool:
+  vmImage: windows-latest
+
+variables:
+- name: system.debug
+  value: true
+
+steps:
+- script: |
+    echo put the logic here
+  displayName: 'Push changes to DevOps repo'
+
