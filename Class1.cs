@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace PL_Tests
 {
     [CrmPluginRegistration(
-       MessageNameEnum.Update,
+       MessageNameEnum.Create,
        Account.EntityLogicalName,
        StageEnum.PreOperation,
        ExecutionModeEnum.Synchronous,
