@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PL_Tests", "PL_Tests.csproj", "{93F14E7D-84B1-4161-B222-F53D55DB6B1D}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Model", "Model\Model.shproj", "{5359AC8C-7ABC-4F7F-8D21-4D2B7502F0DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,5 +23,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2C3C2224-EC53-46DB-BD31-F9F9C911B657}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Model\Model.projitems*{5359ac8c-7abc-4f7f-8d21-4d2b7502f0de}*SharedItemsImports = 13
+		Model\Model.projitems*{93f14e7d-84b1-4161-b222-f53d55db6b1d}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal

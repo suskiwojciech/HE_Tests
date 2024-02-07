@@ -1,0 +1,128 @@
+09:35:18	Deploying Plugins
+09:35:18	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+09:35:19	Using Config 'C:\00_Projects\Piplines'
+09:35:19	Checking assembly 'PL_Tests.dll' for plugins
+09:35:19	2 plugin(s) found!
+09:35:19	Processed 1 config(s)
+09:53:52	Deploying Plugins
+09:53:52	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+09:53:52	Using Config 'C:\00_Projects\Piplines'
+09:53:53	Checking assembly 'PL_Tests.dll' for plugins
+09:53:53	2 plugin(s) found!
+09:53:53	Processed 1 config(s)
+10:02:38	Deploying Plugins
+10:02:38	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+10:02:38	Using Config 'C:\00_Projects\Piplines'
+10:02:38	Checking assembly 'PL_Tests.dll' for plugins
+10:02:38	2 plugin(s) found!
+10:02:38	Processed 1 config(s)
+10:12:04	Deploying Plugins
+10:12:04	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+10:12:04	Using Config 'C:\00_Projects\Piplines'
+10:12:04	Checking assembly 'PL_Tests.dll' for plugins
+10:12:04	2 plugin(s) found!
+10:12:04	Processed 1 config(s)
+10:24:27	Deploying Plugins
+10:24:27	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+10:24:27	Using Config 'C:\00_Projects\Piplines'
+10:24:27	Checking assembly 'PL_Tests.dll' for plugins
+10:24:27	2 plugin(s) found!
+10:24:27	Processed 1 config(s)
+10:26:31	Deploying Plugins
+10:26:31	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+10:26:31	Using Config 'C:\00_Projects\Piplines'
+10:26:31	Checking assembly 'PL_Tests.dll' for plugins
+10:26:31	2 plugin(s) found!
+10:26:31	Processed 1 config(s)
+10:28:21	Deploying Plugins
+10:28:21	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+10:28:21	Using Config 'C:\00_Projects\Piplines'
+10:28:21	Checking assembly 'PL_Tests.dll' for plugins
+10:28:21	2 plugin(s) found!
+10:28:21	Processed 1 config(s)
+10:31:52	Deploying Plugins
+10:31:52	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+10:31:52	Using Config 'C:\00_Projects\Piplines'
+10:31:52	Checking assembly 'PL_Tests.dll' for plugins
+10:31:52	2 plugin(s) found!
+10:31:52	Processed 1 config(s)
+10:37:08	Deploying Plugins
+10:37:08	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+10:37:08	Using Config 'C:\00_Projects\Piplines'
+10:37:08	Checking assembly 'PL_Tests.dll' for plugins
+10:37:08	2 plugin(s) found!
+10:37:08	Registering Plugin 'PL_Tests' from 'C:\00_Projects\Piplines\bin\Debug\PL_Tests.dll'
+10:37:10	Adding Plugin 'PL_Tests' to solution 'PipLines'
+10:37:10	Adding to solution 'PipLines'
+10:38:03	Deploying Plugins
+10:38:03	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+10:38:03	Using Config 'C:\00_Projects\Piplines'
+10:38:03	Checking assembly 'PL_Tests.dll' for plugins
+10:38:03	2 plugin(s) found!
+10:38:04	Checking for orphaned PluginTypes: 'PL_Tests' 
+10:38:04	Updating Plugin 'PL_Tests' from 'C:\00_Projects\Piplines\bin\Debug\PL_Tests.dll'
+10:38:06	Adding Plugin 'PL_Tests' to solution 'PipeLines'
+10:38:06	Adding to solution 'PipeLines'
+10:42:57	Deploying Plugins
+10:42:57	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+10:42:57	Using Config 'C:\00_Projects\Piplines'
+10:42:57	Checking assembly 'PL_Tests.dll' for plugins
+10:42:57	2 plugin(s) found!
+10:42:57	Registering Plugin 'PL_Tests' from 'C:\00_Projects\Piplines\bin\Debug\PL_Tests.dll'
+10:42:59	Adding Plugin 'PL_Tests' to solution 'PipeLines'
+10:42:59	Adding to solution 'PipeLines'
+10:46:26	Deploying Plugins
+10:46:26	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+10:46:26	Using Config 'C:\00_Projects\Piplines'
+10:46:26	Checking assembly 'PL_Tests.dll' for plugins
+10:46:26	2 plugin(s) found!
+10:46:27	Checking for orphaned PluginTypes: 'PL_Tests' 
+10:46:27	Updating Plugin 'PL_Tests' from 'C:\00_Projects\Piplines\bin\Debug\PL_Tests.dll'
+10:46:28	Adding Plugin 'PL_Tests' to solution 'Model'
+10:46:28	Adding to solution 'Model'
+10:48:19	Deploying Plugins
+10:48:19	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+10:48:19	Using Config 'C:\00_Projects\Piplines'
+10:48:19	Checking assembly 'PL_Tests.dll' for plugins
+10:48:19	2 plugin(s) found!
+10:48:19	Checking for orphaned PluginTypes: 'PL_Tests' 
+10:48:20	Updating Plugin 'PL_Tests' from 'C:\00_Projects\Piplines\bin\Debug\PL_Tests.dll'
+10:48:21	Adding Plugin 'PL_Tests' to solution 'Model'
+10:48:21	Adding to solution 'Model'
+10:58:34	Deploying Plugins
+10:58:34	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+10:58:34	Using Config 'C:\00_Projects\Piplines'
+10:58:34	Checking assembly 'PL_Tests.dll' for plugins
+10:58:34	2 plugin(s) found!
+10:58:35	Registering Plugin 'PL_Tests' from 'C:\00_Projects\Piplines\bin\Debug\PL_Tests.dll'
+10:58:36	Adding Plugin 'PL_Tests' to solution 'Model'
+10:58:36	Adding to solution 'Model'
+10:58:38	Registering Type 'PL_Tests.Class1'
+10:58:39	Registering Step 'PL_Tests: Update'
+10:58:41	Adding to solution 'Model'
+10:58:41	Processed 1 config(s)
+11:03:13	Deploying Plugins
+11:03:13	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+11:03:13	Using Config 'C:\00_Projects\Piplines'
+11:03:13	Checking assembly 'PL_Tests.dll' for plugins
+11:03:13	2 plugin(s) found!
+11:03:13	Registering Plugin 'PL_Tests' from 'C:\00_Projects\Piplines\bin\Debug\PL_Tests.dll'
+11:03:15	Adding Plugin 'PL_Tests' to solution 'Model'
+11:03:15	Adding to solution 'Model'
+11:03:16	Registering Type 'PL_Tests.Class1'
+11:03:18	Registering Step 'PL_Tests: Update'
+11:03:19	Adding to solution 'Model'
+11:03:20	Processed 1 config(s)
+11:06:42	Deploying Plugins
+11:06:42	Searching for plugin config in 'C:\00_Projects\Piplines\spkl\..'
+11:06:42	Using Config 'C:\00_Projects\Piplines'
+11:06:42	Checking assembly 'PL_Tests.dll' for plugins
+11:06:42	2 plugin(s) found!
+11:06:43	Registering Plugin 'PL_Tests' from 'C:\00_Projects\Piplines\bin\Debug\PL_Tests.dll'
+11:06:44	Adding Plugin 'PL_Tests' to solution 'Model'
+11:06:44	Adding to solution 'Model'
+11:06:46	Registering Type 'PL_Tests.Class1'
+11:06:47	Registering Step 'PL_Tests: Update'
+11:06:49	Registering Image 'PreImage'
+11:06:50	Adding to solution 'Model'
+11:06:50	Processed 1 config(s)

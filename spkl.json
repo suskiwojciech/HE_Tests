@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    {
+      "profile": "register",
+      "solution": "Model",
+      "assemblypath": "bin\\Debug",
+      "classRegex": "((public( sealed)? class (?'class'[\\w]*)[\\W]*?)((?'plugin':[\\W]*?((IPlugin)|(PluginBase)|(Plugin)))|(?'wf':[\\W]*?CodeActivity)))",
+      "excludePluginSteps": false
+    },
+    {
+      "profile": "release",
+      "solution": "Model",
+      "assemblypath": "bin\\Release",
+      "classRegex": "((public( sealed)? class (?'class'[\\w]*)[\\W]*?)((?'plugin':[\\W]*?((IPlugin)|(PluginBase)|(Plugin)))|(?'wf':[\\W]*?CodeActivity)))",
+      "excludePluginSteps": false
+    },
+    {
+      "assemblypath": "bin\\Debug",
+      "solution": "Model",
+      "classRegex": "((public( sealed)? class (?'class'[\\w]*)[\\W]*?)((?'plugin':[\\W]*?((IPlugin)|(PluginBase)|(Plugin)))|(?'wf':[\\W]*?CodeActivity)))",
+      "excludePluginSteps": true
+    }
+  ]
+}

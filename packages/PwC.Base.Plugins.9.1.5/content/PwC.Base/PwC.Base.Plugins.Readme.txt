@@ -1,0 +1,73 @@
+﻿====Package Overview===========
+-------------------------------
+Main project for developing Crm plugins. Approach for creating plugins is based on PwC.Plugins.Base framework (nuget package).
+Main purpose is to assign multiple developed handlers for each plugin. Handlers are providing some consistent functionality and can be registered in multiple plugins.
+For gathering data in handlers we are using services and repositories which can be accessed from factories. See details in code sample in installed PwC.Plugins.Base folder.
+This is an extension of PwC.Base nuget functionality.
+
+--------------------
+==History----------
+9.1.1.0
+	- Support for logging
+	- Support for step configuration
+9.1.0.1
+	- Many additional helper methods
+	- minor bug fixes
+	- crm sdk update
+9.1.0.0------------
+	- Crm sdk updated to 9.1
+9.0.0.0------------
+	- CrmValidationHandlerBase - DoValidation method renamed to the IsValid
+	- CrmEntityHandlerBase - additional ovverides for ValueChanged methods where first parameter is property selector
+	- PluginBase - catching and extracting proper messages from the SecurityExceptions
+
+8.0.0.1------------ 
+	- CodeSamples updated, renamed, and moved to the PwC.Base folder
+	- Readme file updated, renamed, and moved to the PwC.Base folder
+	- StyleCop rules applied
+	- ValueChanged methods added to the CrmValidationHandlerBase and EntityPluginExecutionContext
+	- IsMessage methods added to the PluginExecutionContext base class
+	- PluginBase traces write now execution time of handlers
+
+8.0.0.0------------ Warning!: no backward compatibility
+	- new versioning convention
+	- style cop fixes
+	- new sets of attributes to filter handlers added (CrmMessage, TargetContainsAll, TargetContainsAny, TargetContains)
+	- CrmMessagesNames string collection replaced By CrmMessage enum,
+	- EntityPluginExecutionContext - bug fixes
+	- HandlerCache - AddToCache removed. Index operator added. GetFromCache<T> method added.
+	- CrmEntityHandlerBase - CurrentState property added, New methods: ValueChanged
+	- CrmHandlerBase - new methods: IsMessage, IsStep
+	- PluginBase - new attributes support
+
+1.0.0.4------------
+	- services and repositories are now in a different nuget (PwC.Base), namespace changed from PwC.Plugins.Base to PwC.Base
+	- namespaces refactored, project structure refactored
+	- PwC.Base.Plugins.Common.Constans changed to PwC.Base.Plugins.Common.Constants
+	- PwC.Plugins.Base.* changed to PwC.Base.Plugins.*
+
+1.0.0.3------------
+	- added RetrieveMultiple to the CrmEntityRepository generic class
+
+1.0.0.2------------
+	- Validation plugin handler type added
+	- Non generic CrmEntityRepository and CrmRepository added (for late bound entities support)
+	- Additional methods in PluginExecutionContext
+	- CrmEntityRepository<TEntity, TContext>.SetStatusUpdate now uses update request
+	- BugFixes
+	- Better support for unit test framework
+	- Delete plugin handler base added
+
+Project structure:
+====================
+==Handlers----------
+--------------------
+Here handlers should be placed for plugins. Handlers should be organised in subnamespaces (folders) based on the entity in plural name form (Accounts, Contacts, etc.).
+Each handler should inherit form CrmActionHandlerBase or CrmEntityHandlerBase generic type, depending whether it's handler for entity message or action.
+
+==Plugins----------
+-------------------
+Here all plugins should be placed. Plugins should be organised in subnamespaces (folders) based on the entity in plural name form (Accounts, Contacts, etc.).
+Each plugin should inherit from PluginBase generic type (RegisterHandlers method must be implemented where all handlers for plugin are registered) and implement IPlugin interface.
+
+--------------->Next See codesamples.txt

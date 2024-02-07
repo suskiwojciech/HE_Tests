@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>93f14e7d-84b1-4161-b222-f53d55db6b1d</ProjectGuid>
+    <ProjectGuid>{93F14E7D-84B1-4161-B222-F53D55DB6B1D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PL_Tests</RootNamespace>
@@ -30,25 +30,154 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.24\lib\net462\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.24\lib\net462\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="CrmPluginRegistrationAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PwC.Base\Common\AssemblyTypesCache.cs" />
+    <Compile Include="PwC.Base\Common\Constants\EntityCommonFieldsNames.cs" />
+    <Compile Include="PwC.Base\Common\EqualityComparers\EntityIdComparer.cs" />
+    <Compile Include="PwC.Base\Common\EqualityComparers\EntityReferenceComparer.cs" />
+    <Compile Include="PwC.Base\Common\Extensions\EntityExtensions.cs" />
+    <Compile Include="PwC.Base\Common\Extensions\FrameworkExtensions.cs" />
+    <Compile Include="PwC.Base\Common\Extensions\QueryExpressionExtensions.cs" />
+    <Compile Include="PwC.Base\Common\RegisterAssemblyTypesInCacheAttribute.cs" />
+    <Compile Include="PwC.Base\DependencyInjection\ConstructorParameter.cs" />
+    <Compile Include="PwC.Base\DependencyInjection\Container.cs" />
+    <Compile Include="PwC.Base\DependencyInjection\ContainerException.cs" />
+    <Compile Include="PwC.Base\DependencyInjection\ContainerExtensions.cs" />
+    <Compile Include="PwC.Base\DependencyInjection\IConstructorParameter.cs" />
+    <Compile Include="PwC.Base\DependencyInjection\IContainer.cs" />
+    <Compile Include="PwC.Base\DependencyInjection\NamedConstructorParameter.cs" />
+    <Compile Include="PwC.Base\DependencyInjection\TypedConstructorParameter.cs" />
+    <Compile Include="PwC.Base\Log\BaseLogger.cs" />
+    <Compile Include="PwC.Base\Log\IBaseLogger.cs" />
+    <Compile Include="PwC.Base\Log\LogLevel.cs" />
+    <Compile Include="PwC.Base\Log\LogSettings.cs" />
+    <Compile Include="PwC.Base\Log\TraceLogContext.cs" />
+    <Compile Include="PwC.Base\Log\TraceParameterData.cs" />
+    <Compile Include="PwC.Base\Plugins\Attributes\CrmMessageAttribute.cs" />
+    <Compile Include="PwC.Base\Plugins\Attributes\CrmProcessingStageAttribute.cs" />
+    <Compile Include="PwC.Base\Plugins\Attributes\FilterAttributesHelper.cs" />
+    <Compile Include="PwC.Base\Plugins\CachedOrganizationServiceFactory.cs" />
+    <Compile Include="PwC.Base\Plugins\Common\Constants\CrmMessage.cs" />
+    <Compile Include="PwC.Base\Plugins\Common\Constants\CrmProcessingStepStages.cs" />
+    <Compile Include="PwC.Base\Plugins\Common\HandlerCache.cs" />
+    <Compile Include="PwC.Base\Plugins\Common\Helpers\ImageHelper.cs" />
+    <Compile Include="PwC.Base\Plugins\Common\Helpers\NameHelper.cs" />
+    <Compile Include="PwC.Base\Plugins\Common\PluginContexts\DeletePluginExecutionContext.cs" />
+    <Compile Include="PwC.Base\Plugins\Common\PluginContexts\EntityPluginExecutionContext.cs" />
+    <Compile Include="PwC.Base\Plugins\Common\PluginContexts\EntityReferencePluginExecutionContext.cs" />
+    <Compile Include="PwC.Base\Plugins\Common\PluginContexts\PluginExecutionContext.cs" />
+    <Compile Include="PwC.Base\Plugins\Handlers\CrmActionHandlerBase.cs" />
+    <Compile Include="PwC.Base\Plugins\Handlers\CrmAssociationHandlerBase.cs" />
+    <Compile Include="PwC.Base\Plugins\Handlers\CrmDeleteHandlerBase.cs" />
+    <Compile Include="PwC.Base\Plugins\Handlers\CrmEntityHandlerBase.cs" />
+    <Compile Include="PwC.Base\Plugins\Handlers\CrmHandlerBase.cs" />
+    <Compile Include="PwC.Base\Plugins\Handlers\CrmHandlerFactory.cs" />
+    <Compile Include="PwC.Base\Plugins\Handlers\CrmValidationHandlerBase.cs" />
+    <Compile Include="PwC.Base\Plugins\Handlers\ICrmHandler.cs" />
+    <Compile Include="PwC.Base\Plugins\Handlers\ICrmValidationHandler.cs" />
+    <Compile Include="PwC.Base\Plugins\Handlers\ICrmWorkHandler.cs" />
+    <Compile Include="PwC.Base\Plugins\PluginBase.cs" />
+    <Compile Include="PwC.Base\Plugins\PluginSettings.cs" />
+    <Compile Include="PwC.Base\Plugins\ProfilerTracingService.cs" />
+    <Compile Include="PwC.Base\Repositories\CrmEntityRepository.cs" />
+    <Compile Include="PwC.Base\Repositories\CrmRepositoriesFactory.cs" />
+    <Compile Include="PwC.Base\Repositories\CrmRepository.cs" />
+    <Compile Include="PwC.Base\Repositories\CrmRepositoryArgs.cs" />
+    <Compile Include="PwC.Base\Repositories\ICrmEntityRepository.cs" />
+    <Compile Include="PwC.Base\Repositories\ICrmRepositoriesFactory.cs" />
+    <Compile Include="PwC.Base\Repositories\ICrmRepository.cs" />
+    <Compile Include="PwC.Base\Services\CrmService.cs" />
+    <Compile Include="PwC.Base\Services\CrmServiceArgs.cs" />
+    <Compile Include="PwC.Base\Services\CrmServicesFactory.cs" />
+    <Compile Include="PwC.Base\Services\ICrmService.cs" />
+    <Compile Include="PwC.Base\Services\ICrmServicesFactory.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\coretools\CrmSvcUtil.exe.config" />
+    <None Include="bin\coretools\LicenseTerms.docx" />
+    <None Include="bin\coretools\pacTelemetryUpload.exe.config" />
+    <None Include="bin\coretools\SolutionPackager.exe.config" />
+    <None Include="key.snk" />
+    <None Include="packages.config" />
+    <None Include="spkl.json" />
+    <None Include="spkl\deploy-plugins.bat" />
+    <None Include="spkl\deploy-register-plugins.bat" />
+    <None Include="spkl\deploy-webresources.bat" />
+    <None Include="spkl\deploy-workflows.bat" />
+    <None Include="spkl\download-webresources.bat" />
+    <None Include="spkl\earlybound.bat" />
+    <None Include="spkl\instrument-plugin-code.bat" />
+    <None Include="spkl\pack+import.bat" />
+    <None Include="spkl\unpack.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\coretools\CrmSvcUtil.exe" />
+    <Content Include="bin\coretools\CrmSvcUtil.xml" />
+    <Content Include="bin\coretools\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\coretools\Microsoft.Crm.Sdk.Proxy.dll" />
+    <Content Include="bin\coretools\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
+    <Content Include="bin\coretools\Microsoft.PowerPlatform.Tooling.BatchedTelemetry.dll" />
+    <Content Include="bin\coretools\Microsoft.Rest.ClientRuntime.dll" />
+    <Content Include="bin\coretools\Microsoft.Xrm.Sdk.Deployment.dll" />
+    <Content Include="bin\coretools\Microsoft.Xrm.Sdk.dll" />
+    <Content Include="bin\coretools\Microsoft.Xrm.Tooling.Connector.dll" />
+    <Content Include="bin\coretools\Microsoft.Xrm.Tooling.CrmConnectControl.dll" />
+    <Content Include="bin\coretools\Microsoft.Xrm.Tooling.Ui.Styles.dll" />
+    <Content Include="bin\coretools\Newtonsoft.Json.dll" />
+    <Content Include="bin\coretools\Other Redistributable.txt" />
+    <Content Include="bin\coretools\pacTelemetryUpload.exe" />
+    <Content Include="bin\coretools\SolutionPackager.exe" />
+    <Content Include="bin\coretools\SolutionPackagerLib.dll" />
+    <Content Include="bin\coretools\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\coretools\System.ValueTuple.dll" />
+    <Content Include="PwC.Base\PwC.Base.CodeSamples.txt" />
+    <Content Include="PwC.Base\PwC.Base.Plugins.CodeSamples.txt" />
+    <Content Include="PwC.Base\PwC.Base.Plugins.Readme.txt" />
+    <Content Include="PwC.Base\PwC.Base.Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+    <Folder Include="config\" />
+    <Folder Include="Handlers\" />
+    <Folder Include="Plugins\" />
+  </ItemGroup>
+  <Import Project="Model\Model.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

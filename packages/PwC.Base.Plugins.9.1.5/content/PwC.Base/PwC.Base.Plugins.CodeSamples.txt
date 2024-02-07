@@ -1,0 +1,115 @@
+﻿===================Entity Handler Sample code=============================
+// Some CanWork conditions could be described as handler attributes
+[CrmProcessingStage(CrmProcessingStepStages.Preoperation)]
+[CrmMessage(CrmMessage.Create, CrmMessage.Update)]
+public class DoSomethingExampleCrmHandler : CrmEntityHandlerBase<Account, XrmServiceContext>
+{
+    // Plugin handler for Create, Update, and entity based (with Target) messages should inherit from CrmEntityHandlerBase class where two generic parameters should be pointed
+    // Entity type and Crm context type.
+
+    // Afterwards can work method must be implemented where conditions when handler will be invoked
+    public override bool CanWork()
+    {
+        return ValueChanged(a => a.Name);
+    }
+
+    // Do work method is body of the handler. There should be implemented business logic of the handler.
+    // All operations on the Crm (and other) data should be accessed using repositories and services.
+    // In base implementation there is CrmRepositoriesFactory and CrmServicesFactory where developer can access particular repositories and services
+    // Execution data provides all context data of a plugin
+    public override void DoWork()
+    {
+        var repository = CrmRepositoriesFactory.Get<IAccountRepository>();
+
+        var elements = repository.GetAllWithFilledNames();
+
+        ExecutionData.Target.AccountNumber = $"{ExecutionData.Target.Name}_{elements.Count}";
+    }
+}
+==========================================================================
+
+===================Validation Handler Sample code=============================
+public class ValidateSomeFieldsHandler : CrmValidationHandlerBase<Account, XrmServiceContext>
+{
+    // Plugin handler for Validate, and entity based (with Target) messages should inherit from CrmValidationHandlerBase class where two generic parameters should be pointed
+    // Entity type and Crm context type.
+
+    // Error message that will be returned by the handler
+    public override string ViolationMessage => "Error occured. Account name duplicated.";
+
+    // Afterwards can work method must be implemented where conditions when handler will be invoked
+    public override bool CanWork()
+    {
+        return ExecutionData.TargetExists() &&
+
+            // Conditions below could be described as attributes also
+            ValueChanged(Account.Fields.Name) &&
+            (IsMessage(CrmMessage.Create) || IsMessage(CrmMessage.Update)) &&
+            IsStage(CrmProcessingStepStages.Prevalidation);
+    }
+
+    // Do validation method is body of the handler. There should be implemented validation logic of the handler.
+    // All operations on the Crm (and other) data should be accessed using repositories and services.
+    // In base implementation there is CrmRepositoriesFactory and CrmServicesFactory where developer can access particular repositories and services
+    // Also there is GetBaseRepository method which will obtain generic repository with all basic actions and query methods
+    // Execution data provides all context data of a plugin
+    public override bool IsValid()
+    {
+        var repository = GetBaseRepository<Account>();
+
+        QueryExpression query = new QueryExpression(Account.EntityLogicalName);
+        query.Criteria.AddCondition(Account.Fields.Name, ConditionOperator.Equal, ExecutionData.Target.Name);
+
+        var elements = repository.RetrieveAll(query).Entities.Select(e => e.ToEntity<Account>()).ToList();
+
+        var hasDuplicates = elements.Any();
+
+        // Return false if there is already and Account with that name.
+        // Defined ViolationMessage will be returned to the user
+        return !hasDuplicates;
+    }
+}
+==========================================================================
+
+===================Custom action Handler Sample code======================
+public class DoSomethingGlobalActionExampleCrmHandler : CrmActionHandlerBase<pwc_globalactionexampleRequest, XrmServiceContext>
+{
+	//  Plugin handler for implementing custom actions behaviour. This example shows implementation for custom pwc_globalactionexample action.
+	// This type of handlers should inherit from CrmActionHandlerBase class where two generic parameters should be passed,
+	// Request type and Crm context type.
+
+	// There is a good approach to create readonly variables for Input and output paraemter names
+    private readonly string InputParam1Name = nameof(pwc_globalactionexampleRequest.InputParam1);
+    private readonly string OutputParam1Name = nameof(pwc_globalactionexampleResponse.OutputParam1);
+
+    public override bool CanWork()
+    {
+		// ActionName is a default variable where You can get action name extracted from request class type
+        return IsMessage(ActionName) &&
+            !string.IsNullOrEmpty(ExecutionData.GetInputParameter<string>(InputParam1Name));
+    }
+
+    public override void DoWork()
+    {
+		// In the ExecutionData there are methods for reading and setting output and input parameters.
+        ExecutionData.SetOutputParameter(OutputParam1Name, string.Format("{0}_{1}", "Success", DateTime.Now.Year));
+    }
+}
+==========================================================================
+
+===================Plugin Sample code=====================================
+public class PostAccountExampleUpdate : PluginBase<XrmServiceContext>, IPlugin
+{
+    // All plugin types should be named as follows: {PipelineStage}{EntityType}{ActionName} ex. PostAccountUpdate, PreContactCreate, etc.
+
+    // All plugins have to inherit from PluginBase generic type where Crm context type have to be defined.
+    // Additionally plugins must implement IPlugin interface explicity to be visible in the Plugin Registration Tool as plugin type.
+
+    public override void RegisterHandlers(CrmHandlerFactory<XrmServiceContext> handlerFactory, IList<ICrmHandler> registeredHandlers)
+    {
+        // There is only one method to implement in the plugin - RegisterHandlers in which developer must point out all handlers
+        // that should be invoked under this plugin
+        registeredHandlers.Add(handlerFactory.GetHandler<DoSomethingExampleCrmHandler>());
+    }
+}
+===========================================================================

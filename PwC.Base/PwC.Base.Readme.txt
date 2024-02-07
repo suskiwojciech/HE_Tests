@@ -1,0 +1,56 @@
+﻿====Package Overview===========
+-------------------------------
+Project contains repositories and services base classes
+
+--------------------
+==History----------
+9.1.1.0
+	- IBaseLogger interface. Adding logging to repositories and services
+9.1.0.1
+	- Many additional helper methods
+	- minor bug fixes
+	- crm sdk update
+9.1.0.0------------
+	- Crm sdk updated to 9.1
+9.0.0.0------------
+	- CrmEntityRepository - all public methods are now virtual
+	- CrmEntityRepository.RetrieveAll bug fixed when TopCount is defined
+	- CrmEntityRepository.GetByAttribute implementation changed. Selector replaced with array of column names.
+	- CrmServicesFactory and CrmRepositoriesFactory now support DI containers.
+
+8.0.0.1------------ 
+	- ICrmEntityRepository extended by methods: 'GetByIdOrDefault', 'RetrieveAll', 'QueryExpressionToFetchXml'
+	- Obsolete method 'RetrieveMultiple' from ICrmEntityRepository removed
+	- CodeSamples updated, renamed, and moved to the PwC.Base folder
+	- Readme file updated, renamed, and moved to the PwC.Base folder
+	- StyleCop rules applied
+
+8.0.0.0------------ Warning!: no backward compatibility
+	- new versioning convention
+	- style cop fixes
+	- New CrmEntityRepository methods (Exists, RetrieveAll, FetchXmlToQueryExpression). RetrieveMultiple method deprecated.
+	- CrmRepositoriesFactory - bug fixes, new GetSystem/GetSystemBase methods for getting repositories in the SYSTEM user context
+	- CrmServicesFactory - bug fixes,
+	- AssemblyTypesCache class added,
+	- CrmService - now supports ITracingService and ICrmServicesFactory. Constructor changed, now it takes only one complex parameter (CrmServiceArgs).
+	- Added additional parameter (merge options) to the crm repositories factory methods
+
+1.0.0.0------------
+	- services and repositories extracted from plugin base nuget
+
+==Repositories------
+--------------------
+Here all custom repositories are registered. There is one generic repository which contains all required methods for calling simple operations and querying datasets.
+Each repository must have corresponding interface that will describe it.
+
+==Services----------
+--------------------
+Here all services are stored. Each service implementation should inherit from CrmService abstract class,
+each implementation must have corresponding interface that will describe it and it must inherit from ICrmService interface.
+
+==Model-------------
+--------------------
+Here early bounds model generated from external tools should be placed. Best practice is to generate context independent files for each entity,
+and generate it only for those entities that are required for coding. XrmToolbox with Early Bound Generator tool.
+
+--------------->Next See codesamples.txt

@@ -1,0 +1,57 @@
+﻿===================Service interface Sample code===========================
+public interface IAccountService : ICrmService
+{
+	// Each service interface should implement ICrmService interface
+	// This interface should describe methods of the service. Service interface should be placed in the Interfaces folder
+    IList<Account> GetAllActiveAccounts();
+}
+===========================================================================
+
+===================Service interface Sample code===========================
+public class AccountService : CrmService, IAccountService
+{
+    private IConfiguration configuration;
+
+    // Each service have it's corresponding implementation.
+    // It should inherit from CrmService abstract type, and implement corresponding interface.
+    // It is created by DI container so it can have injected some services dynamically (i. e. 'IConfiguration').
+    public AccountService(CrmServiceArgs args, IConfiguration configuration)
+        : base(args)
+    {
+        this.configuration = configuration;
+    }
+
+    public IList<Account> GetAllActiveAccounts()
+    {
+        // In services there is CrmRepositoriesFactory where developer can access Geenric and dedicated repositories.
+        // Service should organize some bigger part of logic to use in more than one place.
+        var repository = CrmRepositoriesFactory.GetBase<Account, XrmServiceContext>();
+        var response = repository.Execute<pwc_globalactionexampleRequest, pwc_globalactionexampleResponse>(new pwc_globalactionexampleRequest
+        {
+            InputParam1 = "test"
+        });
+
+        repository.Create(new Account
+        {
+            Name = response.OutputParam1
+        });
+
+        var columns = new string[]
+        {
+            Account.Fields.AccountId,
+            Account.Fields.Name,
+            Account.Fields.AccountNumber
+        };
+
+        var result = repository.GetByAttribute(
+            Account.Fields.StatusCode,
+            (int)Account_StatusCode.Aktywne,
+            columns)
+            .ToList();
+
+        result.ForEach(a => a.AccountNumber = response != null ? response.OutputParam1 : string.Empty);
+
+        return result;
+    }
+}
+===========================================================================
